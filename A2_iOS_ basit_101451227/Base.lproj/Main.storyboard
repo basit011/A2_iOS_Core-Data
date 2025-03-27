@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="2YT-kS-2ts"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="JKN-AQ-jEN"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="house.fill" catalog="system" id="JKN-AQ-jEN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HA4-xE-EH9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -34,11 +34,11 @@
                         <viewLayoutGuide key="safeArea" id="mne-Ex-ElS"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hCe-la-3ru"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="hCe-la-3ru"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUz-l3-LyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="459"/>
+            <point key="canvasLocation" x="1479" y="451"/>
         </scene>
         <!--Item-->
         <scene sceneID="ULM-pg-NwY">
@@ -50,11 +50,27 @@
                         <viewLayoutGuide key="safeArea" id="1YT-RC-iBg"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="P6a-XQ-kxO"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="plus.circle.fill" catalog="system" id="P6a-XQ-kxO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kf5-0S-EhS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2561" y="458"/>
+            <point key="canvasLocation" x="2373" y="451"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="L1v-VA-rkF">
+            <objects>
+                <viewController id="LQZ-T1-fth" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gDO-Cd-iP6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="b8O-AY-G5W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" image="list.bullet" catalog="system" id="wOd-d6-3y3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGP-Xf-KZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3185" y="451"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iY3-xP-hc9">
@@ -63,12 +79,13 @@
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g3u-9m-D7q">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="6bG-2n-pbF" kind="relationship" relationship="viewControllers" id="yLA-Oq-MTI"/>
                         <segue destination="fYe-Lk-prN" kind="relationship" relationship="viewControllers" id="q3o-nr-ESp"/>
                         <segue destination="dA7-Fa-Myp" kind="relationship" relationship="viewControllers" id="Gby-n4-vDb"/>
+                        <segue destination="LQZ-T1-fth" kind="relationship" relationship="viewControllers" id="zVC-eW-Itb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0L-ib-q4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -77,6 +94,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
