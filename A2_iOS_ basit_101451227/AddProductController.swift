@@ -54,6 +54,13 @@ class AddProductController: UIViewController, UITextFieldDelegate {
             do {
                 try context.save()
                 showAlert(message: "Product saved successfully!", dismiss: true)
+                
+                // Clear the text fields after saving
+                nameTextField.text = ""
+                descriptionTextField.text = ""
+                priceTextField.text = ""
+                providerTextField.text = ""
+                
             } catch {
                 showAlert(message: "Failed to save product: \(error.localizedDescription)")
             }
