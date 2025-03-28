@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--ProductDetailViewController-->
         <scene sceneID="PYa-Iw-VhO">
             <objects>
-                <viewController storyboardIdentifier="ProductDetailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6bG-2n-pbF" customClass="ProductDetailController" customModule="A2_iOS__basit_101451227" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailController" title="ProductDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6bG-2n-pbF" customClass="ProductDetailController" customModule="A2_iOS__basit_101451227" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PrZ-Nt-J50">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,27 +93,37 @@
             </objects>
             <point key="canvasLocation" x="644" y="437"/>
         </scene>
-        <!--Item-->
+        <!--SearchViewController-->
         <scene sceneID="tqT-RE-qvv">
             <objects>
-                <viewController restorationIdentifier="SearchViewControlle" storyboardIdentifier="SearchViewControlle" id="fYe-Lk-prN" customClass="SearchViewControlle" customModule="A2_iOS__basit_101451227" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" title="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fYe-Lk-prN" customClass="SearchViewController" customModule="A2_iOS__basit_101451227" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eoD-ih-9ob">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-6U-EiT" customClass="SearchViewControlle">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LZa-6U-EiT" customClass="SearchViewControlle" customModule="A2_iOS__basit_101451227" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="69" width="393" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="863" id="RwR-81-gKf"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8Bu-3h-b8S">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Bu-3h-b8S" id="eae-eS-xHi">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" restorationIdentifier="SearchViewControlle" translatesAutoresizingMaskIntoConstraints="NO" id="izf-SL-nv6" customClass="SearchViewController" customModule="A2_iOS__basit_101451227" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="46" width="393" height="44"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mpc-he-6JF">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="fYe-Lk-prN" id="iAs-tb-fRU"/>
+                                    <outlet property="delegate" destination="fYe-Lk-prN" id="wEW-lu-p0k"/>
                                 </connections>
                             </searchBar>
                         </subviews>
@@ -126,6 +136,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="magnifyingglass" catalog="system" id="hCe-la-3ru"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Mpc-he-6JF" id="uDK-MP-fq9"/>
+                        <outlet property="tableView" destination="LZa-6U-EiT" id="lHt-ae-nDb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUz-l3-LyU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,18 +258,38 @@
         <!--Item-->
         <scene sceneID="L1v-VA-rkF">
             <objects>
-                <viewController id="LQZ-T1-fth" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewProductController" storyboardIdentifier="ViewProductController" id="LQZ-T1-fth" customClass="ViewProductController" customModule="A2_iOS__basit_101451227" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gDO-Cd-iP6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tk5-jx-4p4">
+                                <rect key="frame" x="0.0" y="109" width="393" height="642"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xCV-6H-Ogi">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xCV-6H-Ogi" id="HZf-Ya-ABk">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b8O-AY-G5W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="list.bullet" catalog="system" id="wOd-d6-3y3"/>
+                    <connections>
+                        <outlet property="tableView" destination="tk5-jx-4p4" id="44L-Hs-7lG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tGP-Xf-KZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3185" y="451"/>
+            <point key="canvasLocation" x="3183.969465648855" y="450.7042253521127"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="iY3-xP-hc9">
@@ -269,9 +303,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="6bG-2n-pbF" kind="relationship" relationship="viewControllers" id="yLA-Oq-MTI"/>
-                        <segue destination="fYe-Lk-prN" kind="relationship" relationship="viewControllers" id="q3o-nr-ESp"/>
                         <segue destination="dA7-Fa-Myp" kind="relationship" relationship="viewControllers" id="Gby-n4-vDb"/>
                         <segue destination="LQZ-T1-fth" kind="relationship" relationship="viewControllers" id="zVC-eW-Itb"/>
+                        <segue destination="fYe-Lk-prN" kind="relationship" relationship="viewControllers" id="2lJ-zN-1cS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0L-ib-q4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -10,6 +10,7 @@
 		FE568B682D962C0E00968009 /* AddProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE568B672D962C0E00968009 /* AddProductController.swift */; };
 		FE568B6A2D962C3400968009 /* ViewProductController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE568B692D962C3400968009 /* ViewProductController.swift */; };
 		FE568B6C2D96302E00968009 /* ProductDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE568B6B2D96302E00968009 /* ProductDetailController.swift */; };
+		FE568B6E2D966F8B00968009 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE568B6D2D966F8B00968009 /* SearchViewController.swift */; };
 		FE9769442D91A2FA00C35C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9769432D91A2FA00C35C97 /* AppDelegate.swift */; };
 		FE9769462D91A2FA00C35C97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9769452D91A2FA00C35C97 /* SceneDelegate.swift */; };
 		FE9769482D91A2FA00C35C97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9769472D91A2FA00C35C97 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		FE568B672D962C0E00968009 /* AddProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductController.swift; sourceTree = "<group>"; };
 		FE568B692D962C3400968009 /* ViewProductController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProductController.swift; sourceTree = "<group>"; };
 		FE568B6B2D96302E00968009 /* ProductDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailController.swift; sourceTree = "<group>"; };
+		FE568B6D2D966F8B00968009 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FE9769402D91A2FA00C35C97 /* A2_iOS_ basit_101451227.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A2_iOS_ basit_101451227.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9769432D91A2FA00C35C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE9769452D91A2FA00C35C97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				FE9769432D91A2FA00C35C97 /* AppDelegate.swift */,
 				FE568B6B2D96302E00968009 /* ProductDetailController.swift */,
 				FE9769452D91A2FA00C35C97 /* SceneDelegate.swift */,
+				FE568B6D2D966F8B00968009 /* SearchViewController.swift */,
 				FE568B692D962C3400968009 /* ViewProductController.swift */,
 				FE9769472D91A2FA00C35C97 /* ViewController.swift */,
 				FE9769492D91A2FA00C35C97 /* Main.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				FE97694E2D91A2FA00C35C97 /* A2_iOS__basit_101451227.xcdatamodeld in Sources */,
 				FE9769482D91A2FA00C35C97 /* ViewController.swift in Sources */,
+				FE568B6E2D966F8B00968009 /* SearchViewController.swift in Sources */,
 				FE9769442D91A2FA00C35C97 /* AppDelegate.swift in Sources */,
 				FE9769462D91A2FA00C35C97 /* SceneDelegate.swift in Sources */,
 				FE568B6A2D962C3400968009 /* ViewProductController.swift in Sources */,

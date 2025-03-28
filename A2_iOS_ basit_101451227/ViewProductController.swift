@@ -6,24 +6,69 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewProductController: UIViewController {
-
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var products: [Product] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = "All Products"
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProductCell")
+        
+        fetchProducts()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchProducts()
     }
-    */
+    
+    func fetchProducts() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        
+        do {
+            products = try context.fetch(fetchRequest)
+            tableView.reloadData()
+        } catch {
+            print("Failed to fetch products: \(error)")
+        }
+    }
+}
 
+extension ViewProductController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return products.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
+        let product = products[indexPath.row]
+        
+        // Show name and maybe price
+        cell.textLabel?.text = "\(product.name ?? "Unnamed") - $\(String(format: "%.2f", product.price))"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let selectedProduct = products[indexPath.row]
+        
+        // Instantiate ProductDetailViewController
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
+            detailVC.product = selectedProduct
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }
