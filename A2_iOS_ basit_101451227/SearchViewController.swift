@@ -42,9 +42,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 filteredProducts = products
                 tableView.reloadData()
             } catch let error {
-                print("Error loading products: \(error.localizedDescription)") // More detailed error message
+                print("Error loading products: \(error.localizedDescription)")
             }
         }
+
         
         // MARK: - UISearchBar Delegate
         
@@ -53,17 +54,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             tableView.isHidden = false
             
             if searchText.isEmpty {
-                filteredProducts = products // Show all products if search is empty
+                filteredProducts = products
             } else {
-                // Apply search filter with multiple words
+               // Apply search filter with multiple words
                 let request: NSFetchRequest<Product> = Product.fetchRequest()
                 request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchText)
+            
                 loadProducts(with: request)
             }
-            
+
             // Reload the table view after filtering
             tableView.reloadData()
         }
+
 
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             // Dismiss the keyboard when the "Enter" key is pressed
@@ -72,7 +75,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Optionally, update UI or perform other actions (e.g., load details)
             print("Search button pressed with text: \(searchBar.text ?? "")")
             
-            // You can also call loadProducts to update the table view with filtered results
             let request: NSFetchRequest<Product> = Product.fetchRequest()
             if let searchText = searchBar.text, !searchText.isEmpty {
                 request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchText)
@@ -104,4 +106,4 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Deselect the row after selection
             tableView.deselectRow(at: indexPath, animated: true)
         }
-    }
+}

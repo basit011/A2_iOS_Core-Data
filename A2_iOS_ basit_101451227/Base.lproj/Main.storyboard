@@ -47,23 +47,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91X-rG-WHz">
+                                <rect key="frame" x="48" y="619" width="111" height="53"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="previousProduct:" destination="6bG-2n-pbF" eventType="touchUpInside" id="N9R-ep-hMg"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPg-aU-uvp">
-                                <rect key="frame" x="240" y="619" width="114" height="53"/>
+                                <rect key="frame" x="242" y="619" width="114" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="114" id="3f2-vx-Kbl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="chevron.forward" catalog="system" title="Next"/>
+                                <buttonConfiguration key="configuration" style="filled" image="chevron.right" catalog="system" title=""/>
                                 <connections>
                                     <action selector="nextProduct:" destination="6bG-2n-pbF" eventType="touchUpInside" id="Glp-SF-BIA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91X-rG-WHz">
-                                <rect key="frame" x="48" y="619" width="111" height="53"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="chevron.backward" catalog="system" title="Previous"/>
-                                <connections>
-                                    <action selector="previousProduct:" destination="6bG-2n-pbF" eventType="touchUpInside" id="N9R-ep-hMg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -338,7 +338,7 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
-        <image name="chevron.forward" catalog="system" width="97" height="128"/>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
         <image name="cube.box" catalog="system" width="128" height="123"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
