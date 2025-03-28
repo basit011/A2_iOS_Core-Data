@@ -8,26 +8,82 @@
 import UIKit
 import CoreData
 
-class ProductDetailViewController: UIViewController {
+class ProductDetailController: UIViewController {
     
     var product: Product!  // This will hold the Product passed from the previous screen
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var providerLabel: UILabel!
-    
+   
+    @IBOutlet weak var IDLabel: UITextField!
+    @IBOutlet weak var nameLabel: UITextField!
 
-    override func viewDidLoad() {
+    @IBOutlet weak var descriptionLabel: UITextField!
+    
+    @IBOutlet weak var priceLabel: UITextField!
+    
+    
+    @IBOutlet weak var providerLabel: UITextField!
+    //    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        title = product?.name ?? "Product Details"
+//        
+//        // Ensure the product details are shown if available
+//        if let product = product {
+//            nameLabel.text = product.name
+//            descriptionLabel.text = product.description
+//            priceLabel.text = "$\(String(format: "%.2f", product.price))"
+//            providerLabel.text = product.provider
+//        }
+//
+//    }
+//}
+        
+        var products: [Product] = []
+        var currentIndex: Int = 0
+
+        override func viewDidLoad() {
             super.viewDidLoad()
-            title = product?.name ?? "Product Details"
+            fetchProducts()
+            showProduct(at: currentIndex)
+        }
+
+        func fetchProducts() {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
             
-            // Ensure the product details are shown if available
-            if let product = product {
-                nameLabel.text = product.name ?? "No Name"
-                descriptionLabel.text = product.description ?? "No Description"
-                priceLabel.text = "$\(String(format: "%.2f", product.price))"
-                providerLabel.text = product.provider ?? "Unknown Provider"
+            do {
+                products = try context.fetch(fetchRequest)
+            } catch {
+                print("Error fetching products: \(error)")
+            }
+        }
+
+        func showProduct(at index: Int) {
+            guard !products.isEmpty else {
+                nameLabel.text = "No products found"
+                return
+            }
+
+            let product = products[index]
+            IDLabel.text = "ID: \(product.id)"
+            nameLabel.text = "Name: \(product.name )"
+            descriptionLabel.text = "Description: \(product.description )"
+            priceLabel.text = "Price: $\(product.price)"
+            providerLabel.text = "Provider: \(product.provider ?? "N/A")"
+        }
+
+        @IBAction func nextProduct(_ sender: UIButton) {
+            if currentIndex < products.count - 1 {
+                currentIndex += 1
+                showProduct(at: currentIndex)
+            }
+        }
+
+        @IBAction func previousProduct(_ sender: UIButton) {
+            if currentIndex > 0 {
+                currentIndex -= 1
+                showProduct(at: currentIndex)
             }
         }
     }

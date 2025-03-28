@@ -66,9 +66,10 @@ extension ViewProductController: UITableViewDataSource, UITableViewDelegate {
         let selectedProduct = products[indexPath.row]
         
         // Instantiate ProductDetailViewController
-        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
+        if let detailVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailController") as? ProductDetailController {
             detailVC.product = selectedProduct
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
+
 }
