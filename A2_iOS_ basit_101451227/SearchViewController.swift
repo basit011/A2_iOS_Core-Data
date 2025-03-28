@@ -36,17 +36,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             loadProducts()
         }
         
-        func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest()) {
+
+        func loadProducts(with request: NSFetchRequest<Product>? = Product.fetchRequest()) {
             do {
-                products = try context.fetch(request)
-                filteredProducts = products
+                let result = try context.fetch(request!)
+                self.filteredProducts = result
+                tableView.isHidden = result.isEmpty
                 tableView.reloadData()
-            } catch let error {
-                print("Error loading products: \(error.localizedDescription)")
+            } catch {
+                print("Error fetching products: \(error)")
             }
         }
 
-        
+
         // MARK: - UISearchBar Delegate
         
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -66,7 +68,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Reload the table view after filtering
             tableView.reloadData()
         }
-
 
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
             // Dismiss the keyboard when the "Enter" key is pressed
