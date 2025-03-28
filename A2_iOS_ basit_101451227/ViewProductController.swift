@@ -38,6 +38,7 @@ class ViewProductController: UIViewController {
         
         do {
             products = try context.fetch(fetchRequest)
+            print("Fetched products: \(products)")
             tableView.reloadData()
         } catch {
             print("Failed to fetch products: \(error)")
@@ -55,10 +56,12 @@ extension ViewProductController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
         let product = products[indexPath.row]
         
-        // Show name and maybe price
-        cell.textLabel?.text = "\(product.name ?? "Unnamed") - $\(String(format: "%.2f", product.price))"
+        // Show name, price, and description
+        cell.textLabel?.text = "\(product.name ?? "Unnamed") - \(product.descriptionText ?? "No description available") - $\(String(format: "%.2f", product.price))"
+        
         return cell
     }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -73,3 +76,4 @@ extension ViewProductController: UITableViewDataSource, UITableViewDelegate {
     }
 
 }
+
