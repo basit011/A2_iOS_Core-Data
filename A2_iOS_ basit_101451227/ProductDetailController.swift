@@ -17,20 +17,17 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var providerLabel: UILabel!
     
+
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        /// Populate the labels with product details
-        if let product = product {
-            nameLabel.text = product.name ?? "No Name"
-            descriptionLabel.text = product.description ?? "No Description"
-            priceLabel.text = String(format: "$%.2f", product.price)
-            providerLabel.text = product.provider ?? "Unknown Provider"
+            super.viewDidLoad()
+            title = product?.name ?? "Product Details"
+            
+            // Ensure the product details are shown if available
+            if let product = product {
+                nameLabel.text = product.name ?? "No Name"
+                descriptionLabel.text = product.description ?? "No Description"
+                priceLabel.text = "$\(String(format: "%.2f", product.price))"
+                providerLabel.text = product.provider ?? "Unknown Provider"
+            }
         }
-        
-//        override func viewWillAppear(_ animated: Bool) {
-//            super.viewWillAppear(animated)
-//            // Optionally, update data if necessary when this screen appears again
-//        }
     }
-}
