@@ -22,22 +22,8 @@ class ProductDetailController: UIViewController {
     
     
     @IBOutlet weak var providerLabel: UITextField!
-    //    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        title = product?.name ?? "Product Details"
-//        
-//        // Ensure the product details are shown if available
-//        if let product = product {
-//            nameLabel.text = product.name
-//            descriptionLabel.text = product.description
-//            priceLabel.text = "$\(String(format: "%.2f", product.price))"
-//            providerLabel.text = product.provider
-//        }
-//
-//    }
-//}
-        
+    
+    
         var products: [Product] = []
         var currentIndex: Int = 0
 
@@ -58,20 +44,25 @@ class ProductDetailController: UIViewController {
                 print("Error fetching products: \(error)")
             }
         }
-
-        func showProduct(at index: Int) {
-            guard !products.isEmpty else {
-                nameLabel.text = "No products found"
-                return
-            }
-
-            let product = products[index]
-            IDLabel.text = "ID: \(product.id)"
-            nameLabel.text = "Name: \(product.name )"
-            descriptionLabel.text = "Description: \(product.description )"
-            priceLabel.text = "Price: $\(product.price)"
-            providerLabel.text = "Provider: \(product.provider ?? "N/A")"
+    
+    func showProduct(at index: Int) {
+        guard !products.isEmpty else {
+            nameLabel.text = "No products found"
+            return
         }
+
+        let product = products[index]
+        
+        IDLabel.text = "ID: \(product.id?.uuidString ?? "No ID available")"
+        
+        nameLabel.text = "Name: \(product.name ?? "No name available")"
+        
+        descriptionLabel.text = "Description: \(product.descriptionText ?? "No description available")"
+        
+        priceLabel.text = "Price: $\(String(format: "%.2f", product.price))"
+        
+        providerLabel.text = "Provider: \(product.provider ?? "N/A")"
+    }
 
         @IBAction func nextProduct(_ sender: UIButton) {
             if currentIndex < products.count - 1 {
