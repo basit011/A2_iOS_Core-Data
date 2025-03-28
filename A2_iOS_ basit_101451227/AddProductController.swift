@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
-class AddProductController: UIViewController {
+class AddProductController: UIViewController, UITextFieldDelegate {
 
         
         @IBOutlet weak var nameTextField: UITextField!
@@ -72,11 +73,8 @@ class AddProductController: UIViewController {
         }
         
         // MARK: - UITextFieldDelegate
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
             return true
         }
     }
-
-
-}
