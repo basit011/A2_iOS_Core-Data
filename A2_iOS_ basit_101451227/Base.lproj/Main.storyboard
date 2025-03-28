@@ -94,7 +94,7 @@
                             <constraint firstItem="yOm-zp-KV2" firstAttribute="top" secondItem="uBZ-uc-gM2" secondAttribute="bottom" constant="14" id="wcO-fY-bhj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Product Detail" image="cube.box" catalog="system" id="JKN-AQ-jEN"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="house.fill" catalog="system" id="JKN-AQ-jEN"/>
                     <navigationItem key="navigationItem" id="fgd-7C-Unc"/>
                     <connections>
                         <outlet property="IDLabel" destination="LDq-xw-vHg" id="Qqy-3l-bqV"/>
@@ -339,7 +339,7 @@
     <resources>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <image name="cube.box" catalog="system" width="128" height="123"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>

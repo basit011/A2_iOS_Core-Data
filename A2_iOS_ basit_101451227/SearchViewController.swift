@@ -36,15 +36,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             loadProducts()
         }
         
-
-        func loadProducts(with request: NSFetchRequest<Product>? = Product.fetchRequest()) {
-            do {
-                let result = try context.fetch(request!)
-                self.filteredProducts = result
-                tableView.isHidden = result.isEmpty
-                tableView.reloadData()
-            } catch {
-                print("Error fetching products: \(error)")
+        func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest()) {
+            // Perform the fetch operation in a background thread
+            DispatchQueue.global(qos: .background).async {
+                do {
+                    let products = try self.context.fetch(request)
+                    
+                    // Switch to the main thread to update UI
+                    DispatchQueue.main.async {
+                        self.products = products
+                        self.filteredProducts = self.products
+                        self.tableView.reloadData()
+                        self.tableView.isHidden = self.products.isEmpty
+                    }
+                } catch let error {
+                    print("Error loading products: \(error.localizedDescription)")
+                }
             }
         }
 
@@ -85,6 +92,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 loadProducts()
             }
         }
+   
         
         // MARK: - UITableView Data Source & Delegate
         

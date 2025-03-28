@@ -24,8 +24,7 @@ class ProductDetailController: UIViewController {
     
     
     @IBOutlet weak var providerLabel: UITextField!
-    
-    
+        
         var products: [Product] = []
         var currentIndex: Int = 0
 
