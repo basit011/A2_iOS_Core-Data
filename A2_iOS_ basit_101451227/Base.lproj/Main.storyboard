@@ -122,6 +122,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="700" id="RwR-81-gKf"/>
                                 </constraints>
+                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6vB-ek-NXJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </tableView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Mpc-he-6JF">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -146,6 +153,7 @@
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="hCe-la-3ru"/>
                     <connections>
                         <outlet property="searchBar" destination="Mpc-he-6JF" id="uDK-MP-fq9"/>
+                        <outlet property="selectedProductLabel" destination="6vB-ek-NXJ" id="NlP-IH-E6J"/>
                         <outlet property="tableView" destination="LZa-6U-EiT" id="lHt-ae-nDb"/>
                     </connections>
                 </viewController>
