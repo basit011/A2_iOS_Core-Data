@@ -10,9 +10,11 @@ import CoreData
 
 class ProductDetailController: UIViewController {
     
-    var product: Product!  // This will hold the Product passed from the previous screen
     
-   
+    // This will hold the Product passed from the previous screen
+    var product: Product!
+    
+    
     @IBOutlet weak var IDLabel: UITextField!
     @IBOutlet weak var nameLabel: UITextField!
 

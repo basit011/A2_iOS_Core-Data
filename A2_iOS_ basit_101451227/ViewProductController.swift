@@ -22,6 +22,7 @@ class ViewProductController: UIViewController {
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProductCell")
         
+        
         fetchProducts()
     }
     
