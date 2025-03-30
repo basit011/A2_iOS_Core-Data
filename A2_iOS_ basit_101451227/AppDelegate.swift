@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 ]
                 
                 // Loop through the array of products and insert them into Core Data
-                for (id, name, description, price, provider) in sampleProducts {
+                for (_, name, description, price, provider) in sampleProducts {
                     let product = Product(context: context)
                     product.name = name
                     product.descriptionText = description

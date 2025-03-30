@@ -45,7 +45,17 @@ class ProductDetailController: UIViewController {
             } catch {
                 print("Error fetching products: \(error)")
             }
+            
+            // After fetching, call showProduct to update the UI
+            if !products.isEmpty {
+                showProduct(at: currentIndex)
+            }
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchProducts()
+    }
     
     func showProduct(at index: Int) {
         guard !products.isEmpty else {
@@ -65,6 +75,7 @@ class ProductDetailController: UIViewController {
         
         providerLabel.text = "Provider: \(product.provider ?? "N/A")"
     }
+    
 
         @IBAction func nextProduct(_ sender: UIButton) {
             if currentIndex < products.count - 1 {

@@ -57,7 +57,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
 
-
         // MARK: - UISearchBar Delegate
         
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -121,76 +120,4 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
 
-//    
-//
-//
-//        var products = [Product]()
-//        var filteredProducts = [Product]()
-//
-//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//        
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//            
-//            searchBar.delegate = self
-//            tableView.delegate = self
-//            tableView.dataSource = self
-//            
-//            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProductCell")
-//            
-//            // Initially hide the table view
-//            tableView.isHidden = true
-//            
-//            // Load products from Core Data
-//            loadProducts()
-//        }
-//        
-//        func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest()) {
-//            do {
-//                products = try context.fetch(request)
-//                filteredProducts = products
-//                tableView.reloadData()
-//            } catch let error {
-//                print("Error loading products: \(error.localizedDescription)") // More detailed error message
-//            }
-//        }
-//        
-//        // MARK: - UISearchBar Delegate
-//        
-//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            if searchText.isEmpty {
-//                filteredProducts = products
-//                tableView.isHidden = true // Hide table view when search text is empty
-//            } else {
-//                let request: NSFetchRequest<Product> = Product.fetchRequest()
-//                request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchText)
-//                loadProducts(with: request)
-//                tableView.isHidden = false // Show table view when user starts typing
-//            }
-//            tableView.reloadData()
-//        }
-//        
-//        // MARK: - UITableView Data Source & Delegate
-//        
-//        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//            return filteredProducts.count
-//        }
-//        
-//        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
-//            let product = filteredProducts[indexPath.row]
-//            cell.textLabel?.text = product.name
-//            return cell
-//        }
-//        
-//        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//            let selectedProduct = filteredProducts[indexPath.row]
-//            
-//            // Display the selected product's name in the UILabel
-//            selectedProductLabel.text = "Selected Product: \(selectedProduct.name ?? "No name")"
-//            
-//            // Deselect the row after selection
-//            tableView.deselectRow(at: indexPath, animated: true)
-//        }
-//    }
-//
+    
