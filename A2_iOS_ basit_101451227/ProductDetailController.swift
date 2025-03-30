@@ -30,6 +30,7 @@ class ProductDetailController: UIViewController {
 
         override func viewDidLoad() {
             super.viewDidLoad()
+
             fetchProducts()
             showProduct(at: currentIndex)
         }

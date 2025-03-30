@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        preLoadProductsIfNeeded()
         return true
     }
 
@@ -61,6 +62,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+    
+    
+    func preLoadProductsIfNeeded() {
+        let context = persistentContainer.viewContext
+        
+        // Check if there are already products in the database
+        let fetchRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        
+        do {
+            let products = try context.fetch(fetchRequest)
+            
+            // If there are no products, insert 10 products
+            if products.isEmpty {
+                let sampleProducts = [
+                    ("P001", "iPhone 15", "Latest Apple iPhone with A16 chip", 999.99, "Apple"),
+                    ("P002", "OPPO Find X7 Ultra", "OPPO's flagship smartphone", 1269.99, "OPPO"),
+                    ("P003", "MacBook Pro", "Apple's premium laptop", 2999.99, "Apple"),
+                    ("P004", "Xbox Series X", "Microsoft's powerful gaming console", 499.99, "Microsoft"),
+                    ("P005", "Xiaomi 14 Ultra", "Xiaomi Flagship Phone", 1399.99, "Xiaomi"),
+                    ("P006", "AirPods Pro", "Wireless noise-canceling earbuds", 249.99, "Apple"),
+                    ("P007", "Apple Watch Ultra", "Premium smartwatch for fitness lovers", 799.99, "Apple"),
+                    ("P008", "Dell XPS 13", "Ultra-thin powerful laptop", 1299.99, "Dell"),
+                    ("P009", "Logitech MX Master 3", "High-end ergonomic mouse", 99.99, "Logitech"),
+                    ("P010", "Samsung Galaxy S25", "Samsung's flagship smartphone", 1499.99, "Samsung")
+                ]
+                
+                // Loop through the array of products and insert them into Core Data
+                for (id, name, description, price, provider) in sampleProducts {
+                    let product = Product(context: context)
+                    product.name = name
+                    product.descriptionText = description
+                    product.price = price
+                    product.provider = provider
+                }
+                
+                // Save the context after inserting products
+                try context.save()
+            }
+        } catch {
+            print("Error fetching or inserting products: \(error)")
+        }
+    }
+
+    
+    
     // MARK: - Core Data Saving support
 
     func saveContext () {
